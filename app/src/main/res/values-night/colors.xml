@@ -1,0 +1,11 @@
+<resources>
+    <color name="pix_teal">#55B8A8</color>
+    <color name="pix_teal_dark">#003B35</color>
+    <color name="pix_green">#52C7A8</color>
+    <color name="surface_soft">#111816</color>
+    <color name="text_primary">#EEF5F2</color>
+    <color name="text_secondary">#B7C5C0</color>
+    <color name="danger">#FFB4AB</color>
+    <color name="surface_card">#1D2825</color>
+    <color name="divider">#35423E</color>
+</resources>

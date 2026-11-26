@@ -1,0 +1,22 @@
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+.idea/
+*.iml
+captures/
+
+# Artefatos de distribuicao
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# Backups pessoais/exportados
+pix-backup*.json
+
+# Arquivos locais de manutencao de dispositivos (contem identificadores)
+battery-cleanup-profile-*.json
+restaurar-debloat-b11-*.sh
+reaplicar-limpeza.sh
+flathub.flatpakrepo
