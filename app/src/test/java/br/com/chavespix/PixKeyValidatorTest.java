@@ -86,6 +86,18 @@ public final class PixKeyValidatorTest {
     }
 
     @Test
+    public void formatsCpfAndPhoneMasksDuringInputAndAcceptsPastedPhonePrefix() {
+        assertEquals("529.9", PixKeyValidator.formatCpf("5299"));
+        assertEquals("529.982.247-25", PixKeyValidator.formatCpf("529.982.247-25"));
+        assertEquals("(11) 9", PixKeyValidator.formatPhone("119"));
+        assertEquals("(11) 91234-5678", PixKeyValidator.formatPhone("11912345678"));
+        assertEquals(
+                "(11) 91234-5678",
+                PixKeyValidator.formatPhone("+55 (11) 91234-5678")
+        );
+    }
+
+    @Test
     public void exposesConfiguredPerTypeLimits() {
         assertEquals(1, PixKeyValidator.limitForType(PixKeyValidator.TYPE_CPF));
         assertEquals(1, PixKeyValidator.limitForType(PixKeyValidator.TYPE_PHONE));

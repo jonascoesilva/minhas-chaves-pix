@@ -92,10 +92,10 @@ public final class AddEditKeyActivity extends AppCompatActivity {
 
         bindViews();
         setupBackAndSave();
+        setupInputFormatting();
         populateForm();
         setupSuggestions();
         setupColorPalette();
-        setupInputFormatting();
         setupPasteActions();
         addTextWatchers();
         updateForm();
@@ -271,15 +271,36 @@ public final class AddEditKeyActivity extends AppCompatActivity {
                     return;
                 }
                 String current = editable.toString();
+                int selection = input.getSelectionStart();
+                if (selection < 0) {
+                    selection = current.length();
+                }
+                int digitCountBeforeCursor = PixKeyValidator.digitsOnly(
+                        current.substring(0, Math.min(selection, current.length()))
+                ).length();
                 String formatted = formatter.format(current);
                 if (!current.equals(formatted)) {
                     formatting = true;
                     input.setText(formatted);
-                    input.setSelection(formatted.length());
+                    input.setSelection(cursorAfterDigits(formatted, digitCountBeforeCursor));
                     formatting = false;
                 }
             }
         });
+    }
+
+    private int cursorAfterDigits(String value, int digitCount) {
+        if (digitCount <= 0) {
+            return 0;
+        }
+        int digitsSeen = 0;
+        for (int i = 0; i < value.length(); i++) {
+            char character = value.charAt(i);
+            if (character >= '0' && character <= '9' && ++digitsSeen >= digitCount) {
+                return i + 1;
+            }
+        }
+        return value.length();
     }
 
     private void updateForm() {

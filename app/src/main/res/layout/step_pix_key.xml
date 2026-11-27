@@ -191,7 +191,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
                 android:inputType="phone"
-                android:maxLength="16"
+                android:maxLength="24"
                 android:maxLines="1"
                 android:textSize="16sp"
                 tools:text="(11) 91234-5678" />
@@ -245,8 +245,9 @@
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
                 android:inputType="text"
-                android:maxLines="1"
-                android:textSize="15sp"
+                android:maxLines="2"
+                android:scrollHorizontally="false"
+                android:textSize="14sp"
                 tools:text="550e8400-e29b-41d4-a716-446655440000" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -273,8 +274,9 @@
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
                 android:inputType="text"
-                android:maxLines="1"
-                android:textSize="15sp"
+                android:maxLines="2"
+                android:scrollHorizontally="false"
+                android:textSize="14sp"
                 tools:text="550e8400-e29b-41d4-a716-446655440001" />
         </com.google.android.material.textfield.TextInputLayout>
 

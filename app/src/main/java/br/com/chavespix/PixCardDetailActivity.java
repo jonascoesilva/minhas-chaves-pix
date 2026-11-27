@@ -10,6 +10,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -99,15 +100,25 @@ public final class PixCardDetailActivity extends AppCompatActivity {
             }
             TextView typeLabel = row.findViewById(R.id.key_type);
             typeLabel.setText(label);
+            View typeIconContainer = row.findViewById(R.id.key_type_icon_container);
             TextView typeIcon = row.findViewById(R.id.key_type_icon);
-            typeIcon.setText(iconFor(key.getType()));
-            typeIcon.setContentDescription(label);
-            typeIcon.setTextColor(card.getColorArgb());
+            ImageView phoneIcon = row.findViewById(R.id.key_type_phone_icon);
+            boolean isPhone = PixKeyValidator.TYPE_PHONE.equals(key.getType());
+            typeIcon.setVisibility(isPhone ? View.GONE : View.VISIBLE);
+            phoneIcon.setVisibility(isPhone ? View.VISIBLE : View.GONE);
+            if (isPhone) {
+                phoneIcon.setColorFilter(card.getColorArgb());
+                phoneIcon.setContentDescription(label);
+            } else {
+                typeIcon.setText(iconFor(key.getType()));
+                typeIcon.setContentDescription(label);
+                typeIcon.setTextColor(card.getColorArgb());
+            }
             GradientDrawable iconBackground = new GradientDrawable();
             iconBackground.setShape(GradientDrawable.OVAL);
             iconBackground.setColor(withAlpha(card.getColorArgb(), 28));
             iconBackground.setStroke(dp(1), withAlpha(card.getColorArgb(), 90));
-            typeIcon.setBackground(iconBackground);
+            typeIconContainer.setBackground(iconBackground);
 
             row.findViewById(R.id.copy_button).setOnClickListener(view -> copyKey(key));
             row.findViewById(R.id.more_key_button).setOnClickListener(
@@ -253,9 +264,6 @@ public final class PixCardDetailActivity extends AppCompatActivity {
     private static String iconFor(String type) {
         if (PixKeyValidator.TYPE_CPF.equals(type)) {
             return "ID";
-        }
-        if (PixKeyValidator.TYPE_PHONE.equals(type)) {
-            return "☎";
         }
         if (PixKeyValidator.TYPE_EMAIL.equals(type)) {
             return "@";

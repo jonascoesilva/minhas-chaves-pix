@@ -10,6 +10,21 @@ Aplicativo Android para guardar e consultar chaves Pix organizadas por benefici�
 - Exportação e importação manual de backups JSON.
 - Temas claro, escuro e baseado no sistema.
 
+## Capturas de tela
+
+<table>
+  <tr>
+    <td align="center"><strong>Tela inicial</strong><br><img src="docs/screenshots/home.jpg" width="200" alt="Tela inicial com dados fictícios"></td>
+    <td align="center"><strong>Detalhes do cadastro</strong><br><img src="docs/screenshots/detalhes.jpg" width="200" alt="Detalhes do cadastro de demonstração"></td>
+    <td align="center"><strong>QR Code Pix</strong><br><img src="docs/screenshots/qr.jpg" width="200" alt="QR Code gerado com dados fictícios"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Cadastro com chaves</strong><br><img src="docs/screenshots/cadastro-chaves.jpg" width="200" alt="Formulário com chaves de demonstração"></td>
+    <td align="center"><strong>Cadastro e edição</strong><br><img src="docs/screenshots/cadastro.jpg" width="200" alt="Formulário de edição com dados fictícios"></td>
+    <td></td>
+  </tr>
+</table>
+
 Os backups JSON são exportados sem criptografia. Guarde-os em local seguro e compartilhe-os somente com pessoas de confiança.
 
 ## Requisitos
